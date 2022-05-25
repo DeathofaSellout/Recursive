@@ -11,25 +11,30 @@ addToTwelve([1, 11, 4, 7, 6]); // true
 addToTwelve([1, 12, 4, 7, 6]); // false
 addToTwelve([1]); // false
 ***********************************************************************/
-let addToTwelve = arr => {
+let addToTwelve = (arr) => {
+  let answer = false;
   let firstInd = 0;
   let secondInd = 1;
+  function final(arr) {
 
-  if (secondInd === arr.length || arr.length <= 1) {
-    return false;
-  } else {
+    if(secondInd === arr.length || arr.length < 1) {
+      return answer;
+    }
+
     if(arr[firstInd] + arr[secondInd] === 12){
       return true;
     }
+
     firstInd += 1;
     secondInd += 1;
-    return addToTwelve(arr);
+    return final(arr);
   }
-  function final(arr){
 
-  }
+  return final(arr);
+  //return answer;
 }
 // your code here
+
 console.log(addToTwelve([1, 3, 4, 7, 5]));
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
